@@ -1,22 +1,22 @@
 require('dotenv').config();
 
 function main() {
-  var host = process.env.HOST || 'localhost';
-  var port = process.env.PORT || 3001;
-  var cors_proxy = require('cors-anywhere');
+  const host = process.env.HOST || 'localhost';
+  const port = process.env.PORT || 3001;
+  const corsProxy = require('cors-anywhere');
 
-  cors_proxy
+  corsProxy
     .createServer({
       originWhitelist: ['http://localhost:3000'], // Allow all origins
       requireHeader: ['origin', 'x-requested-with'],
       removeHeaders: ['cookie', 'cookie2'],
-      handleInitialRequest: function (req, res, location) {
+      handleInitialRequest: (req, res, location) => {
         console.log(req.method, location.href);
         console.log(res);
       },
     })
-    .listen(port, host, function () {
-      console.log('Running CORS Anywhere on ' + host + ':' + port);
+    .listen(port, host, () => {
+      console.log(`Running proxy on ${host}:${port}`);
     });
 }
 
