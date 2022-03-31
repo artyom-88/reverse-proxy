@@ -1,0 +1,31 @@
+{
+  "author": "Artem Ganev <a.a.ganev@gmail.com>",
+  "license": "GPL-3.0",
+  "main": "server.js",
+  "name": "artem-reverse-proxy",
+  "version": "1.0.0",
+  "dependencies": {
+    "cors-anywhere": "^0.4.4"
+  },
+  "devDependencies": {
+    "husky": "^7.0.4",
+    "lint-staged": "^12.3.7",
+    "nodemon": "^2.0.15",
+    "prettier": "^2.6.1"
+  },
+  "scripts": {
+    "precommit": "lint-staged",
+    "prepare": "husky install",
+    "start": "node server.js",
+    "start:watch": "nodemon --watch server.js"
+  },
+  "engines": {
+    "node": "14.x",
+    "yarn": "1.22.x"
+  },
+  "lint-staged": {
+    "*.js": [
+      "prettier --write"
+    ]
+  }
+}
