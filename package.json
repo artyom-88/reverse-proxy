@@ -5,7 +5,8 @@
   "name": "artem-reverse-proxy",
   "version": "1.0.0",
   "dependencies": {
-    "cors-anywhere": "^0.4.4"
+    "cors-anywhere": "^0.4.4",
+    "dotenv": "^16.0.0"
   },
   "devDependencies": {
     "husky": "^7.0.4",
