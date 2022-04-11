@@ -9,12 +9,19 @@
     "dotenv": "^16.0.0"
   },
   "devDependencies": {
+    "@types/node": "^17.0.23",
+    "esbuild": "^0.14.34",
     "husky": "^7.0.4",
     "lint-staged": "^12.3.7",
     "nodemon": "^2.0.15",
     "prettier": "^2.6.1"
   },
+  "resolutions": {
+    "http-proxy": ">=1.15.2"
+  },
   "scripts": {
+    "build": "esbuild server.ts --bundle --platform=node --outfile=server.js",
+    "postinstall": "yarn build",
     "precommit": "lint-staged",
     "prepare": "husky install",
     "start": "node server.js",
